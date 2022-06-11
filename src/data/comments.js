@@ -1,4 +1,4 @@
-const commentsList = [
+const comments = [
     {
       id: "kskBC5HZ8qgNQUiW6If6q",
       author: "Billy Bootcamper",
@@ -11,4 +11,4 @@ const commentsList = [
     },
   ];
 
-export default commentsList;
+export default comments;
