@@ -18,3 +18,12 @@
 App file
     - import Comment component
     - return Comment
+
+-create commentList component
+    - write function that takes `comments` as a param
+    - `comments` should be an array of objects with properties id, author and content
+
+App file
+    - import CommentList component
+    - return a Comment component for each item in `comments` array
+        - use `id` value as its React key
