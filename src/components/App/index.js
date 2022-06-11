@@ -1,5 +1,14 @@
+import BlogPost from '../BlogPost';
+import { blog } from '../../data/blogs.js';
+
 function App() {
-  return null;
+
+  return (
+    <div className= "App">
+      <BlogPost {...blog}/>
+    </div>
+  )
+
 }
 
 export default App;

@@ -1,0 +1,3 @@
+-create BlogPost component
+    - create blog function that takes `blog` as parameter
+    - props: `blog` which is an empty object
