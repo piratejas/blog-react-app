@@ -26,7 +26,7 @@ function App() {
         {comments.map(function (comment) {
           return (
             <Comment
-              id={comment.id}
+              key={comment.id}
               author={comment.author}
               content={comment.content}
               initials={getInitials(comment.author)}
