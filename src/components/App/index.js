@@ -3,8 +3,25 @@ import { blog } from "../../data/blogs.js";
 import Comment from "../Comment";
 import CommentList from "../CommentList";
 import comments from "../../data/comments.js";
+import CommentForm from "../CommentForm";
+import { useState } from "react";
 
 function App() {
+  const [commentList, setCommentList] = useState([...comments]);
+
+  function onSubmit(author, comment) {
+    let newComments = [
+      ...comments,
+      {
+        id: `${author}_${new Date().getTime()}`,
+        author: author,
+        content: comment,
+      },
+    ];
+    setCommentList(newComments);
+    console.log(commentList);
+  }
+
   function getInitials(author) {
     let initials = author
       .match(/(\b\S)?/g)
@@ -13,17 +30,11 @@ function App() {
     return initials;
   }
 
-  // const commentProps = {
-  //   author: "Ben Jerry Lee",
-  //   content: "Hello, great post",
-  //   initials: "",
-  // };
-
   return (
     <div className="App">
       <BlogPost {...blog} />
       <CommentList>
-        {comments.map(function (comment) {
+        {commentList.map(function(comment) {
           return (
             <Comment
               key={comment.id}
@@ -34,6 +45,7 @@ function App() {
           );
         })}
       </CommentList>
+      <CommentForm onSubmit={onSubmit} />
     </div>
   );
 }
