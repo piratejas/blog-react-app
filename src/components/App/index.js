@@ -8,7 +8,7 @@ import { useState } from "react";
 function App() {
   const [commentList, setCommentList] = useState([...comments]);
 
-  function onSubmit(author, comment) {
+  function addComment(author, comment) {
     let newComments = [
       ...comments,
       {
@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <BlogPost {...blog} />
       <CommentList comments={commentList}></CommentList>
-      <CommentForm onSubmit={onSubmit} />
+      <CommentForm onSubmit={addComment} />
     </div>
   );
 }

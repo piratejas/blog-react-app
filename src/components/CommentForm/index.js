@@ -36,8 +36,8 @@ function CommentForm({ onSubmit }) {
       <br />
       <button
         type="submit"
-        onSubmit={
-          comment !== "" ? handleClick() : console.log("No comment submitted")
+        onClick={
+          comment !== "" ? handleClick : console.log("No comment submitted")
         }
       >
         Submit
