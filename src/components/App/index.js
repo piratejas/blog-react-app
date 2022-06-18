@@ -10,7 +10,7 @@ function App() {
 
   function addComment(author, comment) {
     let newComments = [
-      ...comments,
+      ...commentList,
       {
         id: `${author}_${new Date().getTime()}`,
         author: author,
