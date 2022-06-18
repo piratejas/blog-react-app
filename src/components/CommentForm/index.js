@@ -6,10 +6,12 @@ function CommentForm({ onSubmit }) {
 
   const handleAuthorChange = (e) => {
     setAuthor(e.target.value);
+    console.log(author);
   };
 
   const handleCommentChange = (e) => {
     setComment(e.target.value);
+    console.log(comment);
   };
 
   const handleClick = function () {
@@ -19,7 +21,7 @@ function CommentForm({ onSubmit }) {
 
   return (
     <form>
-      <label for="author">Author:</label>
+      <label htmlFor="author">Author:</label>
       <br />
       <input
         type="text"
@@ -28,14 +30,14 @@ function CommentForm({ onSubmit }) {
         placeholder={author}
       />
       <br />
-      <label for="comment">Comment:</label>
+      <label htmlFor="comment">Comment:</label>
       <br />
-      <input type="text" id="comment" onChange={handleCommentChange} />
+      <textarea type="text" id="comment" onChange={handleCommentChange} />
       <br />
       <button
         type="submit"
         onSubmit={
-          comment !== "" ? handleClick : console.log("No comment submitted")
+          comment !== "" ? handleClick() : console.log("No comment submitted")
         }
       >
         Submit
