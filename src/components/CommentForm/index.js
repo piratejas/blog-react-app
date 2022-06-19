@@ -17,6 +17,7 @@ function CommentForm({ onSubmit }) {
   function handleClick() {
     if (comment !== "") {
       onSubmit(author, comment);
+      setComment("");
       let textArea = document.querySelector("#comment");
       textArea.value = "";
     } else {
