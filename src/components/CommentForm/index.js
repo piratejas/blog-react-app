@@ -14,10 +14,14 @@ function CommentForm({ onSubmit }) {
     console.log(comment);
   };
 
-  const handleClick = function () {
-    onSubmit(author, comment);
-    setComment("");
-  };
+  function handleClick() {
+    if (comment !== "") {
+      onSubmit(author, comment);
+      setComment("");
+    } else {
+      alert(`No comment submitted`);
+    }
+  }
 
   return (
     <form>
@@ -34,12 +38,7 @@ function CommentForm({ onSubmit }) {
       <br />
       <textarea type="text" id="comment" onChange={handleCommentChange} />
       <br />
-      <button
-        type="submit"
-        onClick={
-          comment !== "" ? handleClick : console.log("No comment submitted")
-        }
-      >
+      <button type="button" onClick={handleClick}>
         Submit
       </button>
     </form>

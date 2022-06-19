@@ -1,16 +1,26 @@
 import BlogPost from "../BlogPost";
 import { blog } from "../../data/blogs.js";
 import CommentList from "../CommentList";
-import comments from "../../data/comments.js";
 import CommentForm from "../CommentForm";
 import { useState } from "react";
 
 function App() {
-  const [commentList, setCommentList] = useState([...comments]);
+  const [comments, setCommentList] = useState([
+    {
+      id: "kskBC5HZ8qgNQUiW6If6q",
+      author: "Billy Bootcamper",
+      content: "Hello, great post",
+    },
+    {
+      id: "jFyGAKz1VsGputO1gV8xa",
+      author: "Chris Meah",
+      content: "Many thank yous",
+    },
+  ]);
 
   function addComment(author, comment) {
     let newComments = [
-      ...commentList,
+      ...comments,
       {
         id: `${author}_${new Date().getTime()}`,
         author: author,
@@ -18,13 +28,13 @@ function App() {
       },
     ];
     setCommentList(newComments);
-    console.log(commentList);
+    console.log(comments);
   }
 
   return (
     <div className="App">
       <BlogPost {...blog} />
-      <CommentList comments={commentList}></CommentList>
+      <CommentList comments={comments}></CommentList>
       <CommentForm onSubmit={addComment} />
     </div>
   );
