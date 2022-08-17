@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./CommentForm.module.css";
 
 function CommentForm({ onSubmit }) {
   const [author, setAuthor] = useState("Anon Author");
@@ -26,29 +27,31 @@ function CommentForm({ onSubmit }) {
   }
 
   return (
-    <form>
-      <label htmlFor="author">Author:</label>
-      <br />
-      <input
-        type="text"
-        id="author"
-        onChange={handleAuthorChange}
-        placeholder={author}
-      />
-      <br />
-      <label htmlFor="comment">Comment:</label>
-      <br />
-      <textarea
-        type="text"
-        id="comment"
-        onChange={handleCommentChange}
-        placeholder={""}
-      />
-      <br />
-      <button type="button" onClick={handleClick}>
-        Submit
-      </button>
-    </form>
+    <div className={styles.formContainer}>
+      <form className={styles.form}>
+        <label htmlFor="author">Author:</label>
+        <br />
+        <input
+          type="text"
+          id="author"
+          onChange={handleAuthorChange}
+          placeholder={author}
+        />
+        <br />
+        <label htmlFor="comment">Comment:</label>
+        <br />
+        <textarea
+          type="text"
+          id="comment"
+          onChange={handleCommentChange}
+          placeholder={""}
+        />
+        <br />
+        <button type="button" onClick={handleClick}>
+          Submit
+        </button>
+      </form>
+    </div>
   );
 }
 

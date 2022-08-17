@@ -1,9 +1,11 @@
+import styles from "./Comment.module.css";
+
 function Comment({ author, content, initials }) {
   return (
-    <li className="comment-container">
-      <span className="initial-circle">{initials}</span>
-      <p className="comment">{content}</p>
-      <p className="comment-author">{author}</p>
+    <li className={styles.commentContainer}>
+      <span className={styles.initialsCircle}>{initials}</span>
+      <p className={styles.commentAuthor}>{author}</p>
+      <p className={styles.comment}>{content}</p>
     </li>
   );
 }
